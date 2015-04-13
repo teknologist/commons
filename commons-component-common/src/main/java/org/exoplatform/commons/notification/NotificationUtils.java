@@ -16,17 +16,6 @@
  */
 package org.exoplatform.commons.notification;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.jcr.Value;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.api.notification.plugin.config.TemplateConfig;
 import org.exoplatform.commons.api.notification.template.Element;
@@ -36,6 +25,16 @@ import org.exoplatform.commons.notification.template.TemplateUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.organization.OrganizationService;
+
+import javax.jcr.Value;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class NotificationUtils {
@@ -54,7 +53,7 @@ public class NotificationUtils {
   
   private static final Pattern LINK_PATTERN = Pattern.compile("<a ([^>]+)>([^<]+)</a>");
 
-  private static final Pattern EMAIL_PATTERN = Pattern.compile("^[_a-z0-9-+]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,5})$");
+  private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
   
   private static final String styleCSS = " style=\"color: #2f5e92; text-decoration: none;\"";
   
