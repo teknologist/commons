@@ -17,9 +17,9 @@
 package org.exoplatform.commons.notification;
 
 
-import java.util.Locale;
-
 import junit.framework.TestCase;
+
+import java.util.Locale;
 
 public class TestNotificationUtils extends TestCase {
 
@@ -56,14 +56,20 @@ public class TestNotificationUtils extends TestCase {
     emails = "test";
     assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
     // email have @ but not '.'
-    emails = "test@test";
-    assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
+    // Removed as Regex from w3c allows that : http://www.w3.org/TR/html-markup/datatypes.html#form.data.emailaddress
+    //emails = "test@test";
+    //assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
+
     // email have charter strange
-    emails = "#%^&test@test.com";
-    assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
+   // emails = "#%^&test@test.com";
+    //// Removed as Regex from w3c allows that : http://www.w3.org/TR/html-markup/datatypes.html#form.data.emailaddress
+
+    //assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
     // email have before '.' is number
-    emails = "test@test.787";
-    assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
+    //emails = "test@test.787";
+     //// Removed as Regex from w3c allows that : http://www.w3.org/TR/html-markup/datatypes.html#form.data.emailaddress
+
+    //assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
     
     emails = "no reply aaa@xyz.com, demo+aaa@demo.com, ";
     assertEquals(false, NotificationUtils.isValidEmailAddresses(emails));
